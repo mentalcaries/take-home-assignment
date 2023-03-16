@@ -1,0 +1,12 @@
+.details {
+	max-width: 65%;
+	margin: 0 auto;
+}
+
+.details__button {
+	margin: 24px 0px;
+}
+
+.details__image {
+	width: 100%;
+}

@@ -11,7 +11,9 @@ export const SearchForm = ({ onSearchSubmit }) => {
 
 	function handleFormSubmit(event) {
 		event.preventDefault();
+		if (query.length < 2) return;
 		onSearchSubmit(query);
+		setQuery('');
 	}
 
 	return (
@@ -24,6 +26,7 @@ export const SearchForm = ({ onSearchSubmit }) => {
 				id="search-field"
 				inputMode="search"
 				name="query"
+				required={true}
 				type="text"
 				value={query}
 				onChange={handleInputChange}

@@ -9,20 +9,20 @@ import { ImageDetailsPage } from './ImageDetailsPage';
 
 export const App = () => {
 	const [results, setResults] = useState([]);
-	const [selectedArtwork, setSelectedArtwork] = useState('');
+	const [selectedArtwork, setSelectedArtwork] = useState({});
 
 	const onSearchSubmit = (query) => {
-		searchArtworks(query).then((json) => {
-			setResults(json);
-		});
+		searchArtworks(query)
+			.then((json) => {
+				setResults(json);
+			})
+			.catch(console.error());
 	};
 
-	console.log(results);
-	console.log(selectedArtwork);
 	return (
 		<div className="App">
 			<h1>TCL Career Lab Art Finder</h1>
-			{!selectedArtwork ? (
+			{!selectedArtwork.imageId ? (
 				<>
 					<SearchForm onSearchSubmit={onSearchSubmit} />
 					<SearchResults
