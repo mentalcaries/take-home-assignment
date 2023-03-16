@@ -2,14 +2,15 @@ import './SearchForm.css';
 
 import { useState } from 'react';
 
-export function SearchForm({ onSearchSubmit }) {
+export const SearchForm = ({ onSearchSubmit }) => {
 	const [query, setQuery] = useState('');
 
 	function handleInputChange(evt) {
 		setQuery(evt.target.value);
 	}
 
-	function handleFormSubmit() {
+	function handleFormSubmit(event) {
+		event.preventDefault();
 		onSearchSubmit(query);
 	}
 
@@ -32,4 +33,4 @@ export function SearchForm({ onSearchSubmit }) {
 			</button>
 		</form>
 	);
-}
+};
